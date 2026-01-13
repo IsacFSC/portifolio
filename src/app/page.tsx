@@ -1,27 +1,13 @@
 import { HeroSection } from '@/components/HeroSection';
 import { ServicesSection } from '@/components/ServicesSection';
-import { ProjectsGrid } from '@/components/ProjectsGrid';
 import { ContactFormHF } from '@/components/ContactFormHF';
-import projects from '@/data/projects.json';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Portfólio | Full Stack Developer',
+  title: 'Full Stack Developer | Portfólio Profissional',
   description:
-    'Desenvolvedor Full Stack especializado em Next.js, React Native e PostgreSQL. Criando soluções web e mobile de alto impacto.',
-  openGraph: {
-    title: 'Portfólio | Full Stack Developer',
-    description: 'Transformando ideias em produtos digitais de qualidade',
-    images: [
-      {
-        url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop',
-        width: 1200,
-        height: 630,
-        alt: 'Full Stack Developer Portfolio',
-      },
-    ],
-  },
+    'Este é o meu site oficial para divulgar meu trabalho. Confira exemplos de projetos em produção e solicite seu projeto pelo formulário.',
 };
 
 export default function Home() {
@@ -33,20 +19,22 @@ export default function Home() {
       {/* Services */}
       <ServicesSection />
 
-      {/* Portfólio */}
-      <section id="portfolio" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Portfólio de Projetos
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa
-              dedicação, inovação e qualidade.
-            </p>
-          </div>
-
-          <ProjectsGrid projects={projects} />
+      {/* CTA para Portfólio */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Veja Meu Portfólio
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa
+            dedicação, inovação e qualidade.
+          </p>
+          <Link
+            href="/portfolio"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
+          >
+            Acessar Portfólio
+          </Link>
         </div>
       </section>
 
@@ -86,9 +74,9 @@ export default function Home() {
               <h3 className="text-lg font-bold mb-4">Links Rápidos</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#portfolio" className="hover:text-white transition-colors">
+                  <Link href="/portfolio" className="hover:text-white transition-colors">
                     Portfólio
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#contact" className="hover:text-white transition-colors">
