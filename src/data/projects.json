@@ -6,7 +6,7 @@
     "technologies": ["Next.js", "TypeScript", "Prisma", "Neon", "UploadThing", "Zod", "Tailwind CSS"],
     "imageUrl": "/assets/projects/amendoeira-do-cerrado.png",
     "link": "https://amendoeira-do-cerrado.vercel.app",
-    "github": "https://github.com/seu-usuario/amendoeira-cerrado",
+    "github": "https://portifolio-three-eta-92.vercel.app/",
     "featured": true,
     "category": "Full Stack"
   },
@@ -17,7 +17,7 @@
     "technologies": ["Next.js", "TypeScript", "Prisma", "Neon", "UploadThing", "Zod", "React"],
     "imageUrl": "/assets/projects/schedule.png",
     "link": "https://escala-ievv-music.vercel.app",
-    "github": "https://github.com/seu-usuario/escala-music",
+    "github": "https://portifolio-three-eta-92.vercel.app/",
     "featured": true,
     "category": "Full Stack"
   },
@@ -27,8 +27,8 @@
     "description": "Portfólio moderno com formulário seguro, admin dashboard e padrões enterprise. Demonstra conhecimento profundo de segurança e performance",
     "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Neon", "Zod", "Zustand"],
     "imageUrl": "/assets/projects/portifolio.png",
-    "link": "https://seu-portfolio.vercel.app",
-    "github": "https://github.com/seu-usuario/portifolio",
+    "link": "https://portifolio-three-eta-92.vercel.app/",
+    "github": "https://portifolio-three-eta-92.vercel.app/",
     "featured": false,
     "category": "Full Stack"
   },
