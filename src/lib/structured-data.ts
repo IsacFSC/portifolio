@@ -6,7 +6,7 @@ export const getPersonSchema = () => ({
   jobTitle: 'Full Stack Developer',
   description:
     'Desenvolvedor Full Stack especializado em Next.js, TypeScript, React Native e PostgreSQL',
-  url: 'https://seu-dominio.com',
+  url: 'https://portifolio-three-eta-92.vercel.app',
   sameAs: [
     'https://github.com/seu-usuario',
     'https://linkedin.com/in/seu-usuario',
@@ -28,7 +28,7 @@ export const getPortfolioSchema = () => ({
   '@type': 'CollectionPage',
   name: 'Portfólio de Projetos',
   description: 'Coleção de projetos profissionais desenvolvidos com Next.js e tecnologias modernas',
-  url: 'https://seu-dominio.com/portfolio',
+  url: 'https://portifolio-three-eta-92.vercel.app/portfolio',
 });
 
 export const getProjectSchema = (project: {
@@ -57,7 +57,7 @@ export const getOrganizationSchema = () => ({
   name: 'IsacFSC - Full Stack Developer',
   description:
     'Desenvolvedor Full Stack especializado em criação de soluções web modernas e seguras',
-  url: 'https://seu-dominio.com',
+  url: 'https://portifolio-three-eta-92.vercel.app',
   sameAs: [
     'https://github.com/seu-usuario',
     'https://linkedin.com/in/seu-usuario',

@@ -29,7 +29,7 @@ export const metadata = {
       'Confira meus projetos profissionais desenvolvidos com tecnologias modernas.',
   },
   robots: 'index, follow',
-  canonical: 'https://seu-dominio.com/portfolio',
+  canonical: 'https://portifolio-three-eta-92.vercel.app/portfolio',
 };
 
 export default function PortfolioPage() {

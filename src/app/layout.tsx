@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://seu-dominio.com",
+    url: "https://portifolio-three-eta-92.vercel.app",
     siteName: "IsacFSC - Full Stack Developer",
     title: "Full Stack Developer | Portfólio Profissional",
     description:
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     google: "seu-google-site-verification-code",
   },
   alternates: {
-    canonical: "https://seu-dominio.com",
+    canonical: "https://portifolio-three-eta-92.vercel.app",
   },
 };
 
@@ -89,7 +89,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://seu-dominio.com" />
+        <link rel="canonical" href="https://portifolio-three-eta-92.vercel.app" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
