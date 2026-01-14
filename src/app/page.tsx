@@ -125,9 +125,16 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>
-              &copy; {new Date().getFullYear()} IsacFSC. Todos os direitos reservados.
+            <p className="text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} Projects. Todos os direitos reservados.
             </p>
+          </div>
+        
+          <div className="mt-4 text-center flex items-center space-x-2 justify-center">
+            <Link href="https://github.com/IsacFSC" target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm inline-flex items-center hover:text-white transition-colors gap-2">
+              <span>Desenvolvido por <strong>IsacFSC</strong></span>
+              <Github size={20} />
+            </Link>
           </div>
         </div>
       </footer>
