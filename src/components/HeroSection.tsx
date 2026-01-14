@@ -59,7 +59,7 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild size="lg">
-                <Link href="#portfolio" className="gap-2">
+                <Link href="/portfolio" className="gap-2">
                   Ver Portfólio
                   <ArrowRight size={20} />
                 </Link>
