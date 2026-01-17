@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Full Stack Developer | Portfólio Profissional',
+  title: 'Full Stack Developer | Portifólio Profissional',
   description:
     'Este é o meu site oficial para divulgar meu trabalho. Confira exemplos de projetos em produção e solicite seu projeto pelo formulário.',
 };
@@ -19,11 +19,11 @@ export default function Home() {
       {/* Services */}
       <ServicesSection />
 
-      {/* CTA para Portfólio */}
+      {/* CTA para Portifólio */}
       <section className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Veja Meu Portfólio
+            Veja Meu Portifólio
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa
@@ -33,7 +33,7 @@ export default function Home() {
             href="/portifolio"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
           >
-            Acessar Portfólio
+            Acessar Portifólio
           </Link>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function Home() {
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/portifolio" className="hover:text-white transition-colors">
-                    Portfólio
+                    Portifólio
                   </Link>
                 </li>
                 <li>

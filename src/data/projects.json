@@ -23,8 +23,8 @@
   },
   {
     "id": 3,
-    "title": "Portfólio Profissional",
-    "description": "Portfólio moderno com formulário seguro, admin dashboard e padrões enterprise. Demonstra conhecimento profundo de segurança e performance",
+    "title": "Portifólio Profissional",
+    "description": "Portifólio moderno com formulário seguro, admin dashboard e padrões enterprise. Demonstra conhecimento profundo de segurança e performance",
     "technologies": ["Next.js", "React", "TypeScript", "Prisma", "Neon", "Zod", "Zustand"],
     "imageUrl": "/assets/projects/portifolio.png",
     "link": "https://portifolio-three-eta-92.vercel.app/",

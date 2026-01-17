@@ -60,7 +60,7 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild size="lg">
                 <Link href="/portifolio" className="gap-2">
-                  Ver Portfólio
+                  Ver Portifólio
                   <ArrowRight size={20} />
                 </Link>
               </Button>

@@ -1,10 +1,10 @@
-# Portfólio
+# Portifólio
 
 Este é o meu site oficial para divulgar meu trabalho e experiência.
 
 ## Sobre
 
-Um portfólio moderno onde você pode ver exemplos de projetos em produção e conhecer os serviços que ofereço.
+Um portifólio moderno onde você pode ver exemplos de projetos em produção e conhecer os serviços que ofereço.
 
 ## Funcionalidades
 

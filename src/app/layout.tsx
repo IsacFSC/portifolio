@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Full Stack Developer | Portfólio Profissional",
+    default: "Full Stack Developer | Portifólio Profissional",
     template: "%s | IsacFSC",
   },
   description:
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://portifolio-three-eta-92.vercel.app",
     siteName: "IsacFSC - Full Stack Developer",
-    title: "Full Stack Developer | Portfólio Profissional",
+    title: "Full Stack Developer | Portifólio Profissional",
     description:
       "Projetos profissionais desenvolvidos com as melhores práticas de código e segurança.",
     images: [
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop",
         width: 1200,
         height: 630,
-        alt: "Full Stack Developer Portifolio",
+        alt: "Full Stack Developer Portifólio",
         type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Full Stack Developer | Portfólio Profissional",
+    title: "Full Stack Developer | Portifólio Profissional",
     description:
       "Desenvolvedor Full Stack com expertise em Next.js, React e Node.js",
     images: [

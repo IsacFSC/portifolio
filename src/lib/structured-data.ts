@@ -26,7 +26,7 @@ export const getPersonSchema = () => ({
 export const getPortifolioSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Portfólio de Projetos',
+  name: 'Portifólio de Projetos',
   description: 'Coleção de projetos profissionais desenvolvidos com Next.js e tecnologias modernas',
   url: 'https://portifolio-three-eta-92.vercel.app/portifolio',
 });

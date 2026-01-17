@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Portfólio de Projetos | Full Stack Developer',
+  title: 'Portifólio de Projetos | Full Stack Developer',
   description:
     'Confira meus projetos em produção: Amendoeira do Cerrado, Escala IEVV Music, e mais. Desenvolvidos com Next.js, TypeScript, Prisma e as melhores práticas.',
-  keywords: 'projetos, portfólio, full stack, next.js, react, typescript, nodejs',
+  keywords: 'projetos, portifólio, full stack, next.js, react, typescript, nodejs',
   openGraph: {
-    title: 'Portfólio de Projetos | Full Stack Developer',
+    title: 'Portifólio de Projetos | Full Stack Developer',
     description:
       'Projetos profissionais desenvolvidos com Next.js, TypeScript e Prisma. Exemplos de código limpo e segurança em produção.',
     images: [
@@ -17,14 +17,14 @@ export const metadata = {
         url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop',
         width: 1200,
         height: 630,
-        alt: 'Portfólio de Projetos',
+        alt: 'Portifólio de Projetos',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfólio de Projetos | Full Stack Developer',
+    title: 'Portifólio de Projetos | Full Stack Developer',
     description:
       'Confira meus projetos profissionais desenvolvidos com tecnologias modernas.',
   },
@@ -51,7 +51,7 @@ export default function PortifolioPage() {
 
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Portfólio de Projetos
+              Portifólio de Projetos
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
               Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa

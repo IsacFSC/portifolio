@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'IsacFSC - Full Stack Developer',
     short_name: 'IsacFSC',
-    description: 'Portfólio profissional de um desenvolvedor Full Stack',
+    description: 'Portifólio profissional de um desenvolvedor Full Stack',
     start_url: '/',
     scope: '/',
     display: 'standalone',
