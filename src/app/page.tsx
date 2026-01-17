@@ -30,7 +30,7 @@ export default function Home() {
             dedicação, inovação e qualidade.
           </p>
           <Link
-            href="/portfolio"
+            href="/portifolio"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
           >
             Acessar Portfólio
@@ -74,7 +74,7 @@ export default function Home() {
               <h3 className="text-lg font-bold mb-4">Links Rápidos</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/portfolio" className="hover:text-white transition-colors">
+                  <Link href="/portifolio" className="hover:text-white transition-colors">
                     Portfólio
                   </Link>
                 </li>

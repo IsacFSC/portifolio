@@ -22,21 +22,21 @@ export const useFormStore = create<FormState>((set) => ({
   reset: () => set({ isSubmitting: false, error: null, success: false }),
 }));
 
-// User/Portfolio Store
+// User/Portifolio Store
 interface Project {
   id: number;
   title: string;
   featured: boolean;
 }
 
-interface PortfolioStore {
+interface PortifolioStore {
   projects: Project[];
   setProjects: (projects: Project[]) => void;
   addProject: (project: Project) => void;
   removeProject: (id: number) => void;
 }
 
-export const usePortfolioStore = create<PortfolioStore>((set) => ({
+export const usePortifolioStore = create<PortifolioStore>((set) => ({
   projects: [],
   
   setProjects: (projects) => set({ projects }),
