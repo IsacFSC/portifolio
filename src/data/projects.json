@@ -34,6 +34,17 @@
   },
   {
     "id": 4,
+    "title": "My Voyage",
+    "description": "MVP de plataforma de viagens em produção. Protótipo funcional desenvolvido para apresentação aos clientes, demonstrando interface moderna e recursos interativos",
+    "technologies": ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    "imageUrl": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop",
+    "link": "https://my-voyage.vercel.app/",
+    "github": "#",
+    "featured": false,
+    "category": "MVP"
+  },
+  {
+    "id": 5,
     "title": "Mais Projetos Em Desenvolvimento",
     "description": "Constantemente trabalhando em novas features e melhorias. Cada projeto aplica melhores práticas de segurança, performance e código limpo",
     "technologies": ["Next.js", "TypeScript", "Prisma", "Tailwind CSS", "React Hook Form"],
