@@ -50,7 +50,7 @@
     "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "WhatsApp API", "React", "Tailwind CSS"],
     "imageUrl": "https://my-nutri-nine.vercel.app/assets/cover.png",
     "link": "https://my-nutri-nine.vercel.app/",
-    "github": "#",
+    "github": "https://my-nutri-nine.vercel.app/",
     "featured": true,
     "category": "Full Stack"
   },
@@ -61,7 +61,7 @@
     "technologies": ["Next.js", "TypeScript", "Prisma", "Tailwind CSS", "React Hook Form"],
     "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop",
     "link": "#",
-    "github": "https://github.com/seu-usuario",
+    "github": "https://my-nutri-nine.vercel.app/",
     "featured": false,
     "category": "Upcoming"
   }
