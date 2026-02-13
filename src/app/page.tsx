@@ -3,6 +3,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { ContactFormHF } from '@/components/ContactFormHF';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { OpenPortfolioButton } from '@/components/OpenPortfolioButton';
 
 export const metadata = {
   title: 'Full Stack Developer | Portifólio Profissional',
@@ -29,12 +30,12 @@ export default function Home() {
             Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa
             dedicação, inovação e qualidade.
           </p>
-          <Link
-            href="/portifolio"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
-          >
-            Acessar Portifólio
-          </Link>
+          {/* Open portfolio slider instead of separate page */}
+          <div>
+            <OpenPortfolioButton className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
+              Acessar Portifólio
+            </OpenPortfolioButton>
+          </div>
         </div>
       </section>
 
@@ -74,9 +75,9 @@ export default function Home() {
               <h3 className="text-lg font-bold mb-4">Links Rápidos</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/portifolio" className="hover:text-white transition-colors">
+                  <OpenPortfolioButton className="hover:text-white transition-colors text-gray-400">
                     Portifólio
-                  </Link>
+                  </OpenPortfolioButton>
                 </li>
                 <li>
                   <a href="#contact" className="hover:text-white transition-colors">

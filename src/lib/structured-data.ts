@@ -28,7 +28,7 @@ export const getPortifolioSchema = () => ({
   '@type': 'CollectionPage',
   name: 'Portifólio de Projetos',
   description: 'Coleção de projetos profissionais desenvolvidos com Next.js e tecnologias modernas',
-  url: 'https://portifolio-three-eta-92.vercel.app/portifolio',
+  url: 'https://portifolio-three-eta-92.vercel.app',
 });
 
 export const getProjectSchema = (project: {

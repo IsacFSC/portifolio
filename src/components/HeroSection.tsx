@@ -1,24 +1,45 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code2, Zap, Shield } from 'lucide-react';
+import { PortfolioSlider } from './PortfolioSlider';
+import { openPortfolioAndScroll } from './OpenPortfolioButton';
 
 export function HeroSection() {
+
   return (
-    <section className="min-h-screen bg-linear-to-br from-gray-900 via-blue-900 to-gray-900 text-white flex items-center py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Conteúdo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
+    <>
+      <section className="min-h-screen bg-linear-to-br from-gray-900 via-blue-900 to-gray-900 text-white flex items-center lg:py-1.5 pt-14 lg:pt-0">
+        {/* Mobile fixed CTA bar */}
+        <div className="fixed lg:static top-0 left-0 right-0 py-1.5 bg-gray-900/80 backdrop-blur-sm z-50 lg:bg-transparent">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div className="lg:hidden flex gap-3 items-center">
+              <Button size="lg" onClick={() => openPortfolioAndScroll()}>
+                Ver Portifólio
+                <ArrowRight size={20} />
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-black bg-cyan-900 hover:bg-gray-400">
+                  Começar Projeto
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Conteúdo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col space-y-6"
+            >
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              <h1 className="text-2xl md:text-6xl font-bold leading-tight">
                 Transformando Ideias em
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400">
                   {' '}
@@ -56,18 +77,16 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild size="lg">
-                <Link href="/portifolio" className="gap-2">
-                  Ver Portifólio
-                  <ArrowRight size={20} />
-                </Link>
+            {/* CTA Buttons (visible on large screens; mobile uses fixed bar) */}
+            <div className="hidden lg:flex order-first lg:order-0 gap-3 items-start pt-0">
+              <Button size="lg" onClick={() => openPortfolioAndScroll()}>
+                Ver Portifólio
+                <ArrowRight size={20} />
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="#contact" className="border-white text-white hover:text-black bg-cyan-900 hover:bg-gray-400">
+              <Button variant="outline" size="lg" asChild>
+                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-black bg-cyan-900 hover:bg-gray-400">
                   Começar Projeto
-                </Link>
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -110,5 +129,9 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+
+      {/* Portfolio slider placed below HeroSection */}
+      <PortfolioSlider />
+    </>
   );
 }

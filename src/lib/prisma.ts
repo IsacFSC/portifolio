@@ -8,10 +8,20 @@ const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString,
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  // Reduce simultaneous connections to avoid hitting Neon limits and increase
+  // connection timeout so slow networks don't fail immediately.
+  max: 6,
+  idleTimeoutMillis: 60000,
+  connectionTimeoutMillis: 10000,
+  // Allow Node to exit cleanly if the pool is idle (useful for local dev/tests)
+  allowExitOnIdle: true,
 });
+
+// Helpful debug logging for pool errors (will not crash the process)
+pool.on("error", (err) => {
+  console.error("Postgres pool error:", err);
+});
+
 
 const adapter = new PrismaPg(pool);
 
