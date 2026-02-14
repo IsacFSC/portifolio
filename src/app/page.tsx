@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* Contato */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20 bg-slate-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -51,7 +51,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-xl p-8 md:p-12">
+          <div className="bg-slate-100 rounded-xl p-8 md:p-12">
             <ContactFormHF />
           </div>
         </div>

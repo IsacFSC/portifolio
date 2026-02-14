@@ -124,24 +124,17 @@
   }
 }
 
+
 /* Projects marquee animation */
 @keyframes projects-slider {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-100% / 3)); }
 }
 
 .animate-projects-slider {
-  /* slower to fit bigger cards */
-  animation: projects-slider linear infinite 28s;
-}
-
-/* pause on hover */
-.animate-projects-slider:hover {
-  animation-play-state: paused;
-}
-
-/* utility to ensure content width supports duplicated list */
-.projects-track {
-  min-width: 220%;
+  /* speed adjusted for smooth continuous loop */
+  animation: projects-slider 16s linear infinite;
+  /* ensure content stretches to fit all items */
+  width: 1000%;
 }
 
