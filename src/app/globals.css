@@ -133,8 +133,33 @@
 
 .animate-projects-slider {
   /* speed adjusted for smooth continuous loop */
-  animation: projects-slider 16s linear infinite;
+  animation: projects-slider var(--projects-slider-duration, 16s) linear infinite;
   /* ensure content stretches to fit all items */
   width: 1000%;
+}
+
+@media (max-width: 639px) {
+  .animate-projects-slider {
+    --projects-slider-duration: 20s;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .animate-projects-slider {
+    --projects-slider-duration: 18s;
+  }
+}
+
+@media (min-width: 1024px) {
+  .animate-projects-slider {
+    --projects-slider-duration: 28s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-projects-slider {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
 }
 

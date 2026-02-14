@@ -47,7 +47,7 @@ export function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-bounce">
             Serviços Oferecidos
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-8 bg-gray-50 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer"
+                className="group p-8 bg-gray-200 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 group-hover:bg-blue-700 rounded-lg mb-4">
                   <Icon size={24} className="text-blue-600 group-hover:text-white" />

@@ -20,30 +20,11 @@ export default function Home() {
       {/* Services */}
       <ServicesSection />
 
-      {/* CTA para Portifólio */}
-      <section className="py-20 bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Veja Meu Portifólio
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Confira alguns dos projetos que tive o prazer de desenvolver. Cada um representa
-            dedicação, inovação e qualidade.
-          </p>
-          {/* Open portfolio slider instead of separate page */}
-          <div>
-            <OpenPortfolioButton className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
-              Acessar Portifólio
-            </OpenPortfolioButton>
-          </div>
-        </div>
-      </section>
-
       {/* Contato */}
       <section id="contact" className="py-20 bg-slate-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-pulse">
               Vamos Trabalhar Juntos?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
