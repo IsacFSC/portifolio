@@ -10,7 +10,7 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="min-h-screen bg-linear-to-br from-gray-900 via-blue-900 to-gray-900 text-white flex items-center lg:py-1.5 pt-14 lg:pt-0">
+      <section className="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-slate-900 text-white flex items-center lg:py-1.5 pt-14 lg:pt-0">
         {/* Mobile fixed CTA bar */}
         <div className="fixed lg:static top-0 left-0 right-0 py-1.5 bg-gray-900/80 backdrop-blur-sm z-50 lg:bg-transparent">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
@@ -20,8 +20,8 @@ export function HeroSection() {
                 <ArrowRight size={20} />
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-black bg-cyan-900 hover:bg-gray-400">
-                  Começar Projeto
+                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-blue-950 bg-blue-800 hover:bg-blue-200">
+                  Pedir Orçamento
                 </a>
               </Button>
             </div>
@@ -39,15 +39,13 @@ export function HeroSection() {
             >
             <div className="space-y-4">
               <h1 className="text-2xl md:text-6xl font-bold leading-tight">
-                Transformando Ideias em
+                Seu negócio merece um site que
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400">
-                  {' '}
-                  Produtos Digitais
+                  {' '}gera confiança e vendas
                 </span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
-                Desenvolvedor Full Stack especializado em criar aplicações web modernas,
-                landing pages de alta conversão e soluções tecnológicas escaláveis.
+                Crio sites e sistemas sob medida para captar clientes, apresentar seu serviço com autoridade e facilitar o crescimento da sua empresa.
               </p>
             </div>
 
@@ -64,14 +62,14 @@ export function HeroSection() {
                 <Zap size={24} className="text-cyan-400" />
                 <div>
                   <p className="text-sm text-gray-400">Performance</p>
-                  <p className="font-semibold">Otimizado & Rápido</p>
+                  <p className="font-semibold">Rápido no celular</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Shield size={24} className="text-blue-400" />
                 <div>
                   <p className="text-sm text-gray-400">Segurança</p>
-                  <p className="font-semibold">Produção-Ready</p>
+                  <p className="font-semibold">Confiável em produção</p>
                 </div>
               </div>
             </div>
@@ -83,8 +81,8 @@ export function HeroSection() {
                 <ArrowRight size={20} />
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-black bg-cyan-900 hover:bg-gray-400">
-                  Começar Projeto
+                <a href="#contact" className="inline-flex items-center justify-center gap-2 border-white text-white hover:text-blue-950 bg-blue-800 hover:bg-blue-200">
+                  Pedir Orçamento
                 </a>
               </Button>
             </div>

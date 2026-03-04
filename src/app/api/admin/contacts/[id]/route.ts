@@ -2,25 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
 import { z } from "zod";
-
-/**
- * Validar token de autenticação
- */
-function validateAdminToken(request: NextRequest): boolean {
-  const token = request.headers.get("x-admin-token");
-  const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
-
-  if (!token || !token.startsWith("Bearer ")) {
-    return false;
-  }
-
-  const expectedToken = Buffer.from(`admin:${adminPassword}`).toString(
-    "base64"
-  );
-  const receivedToken = token.slice(7); // Remove "Bearer "
-
-  return receivedToken === expectedToken;
-}
+import { hasValidAdminSession } from "@/lib/admin-auth";
 
 /**
  * Validar ID (proteção contra SQL injection)
@@ -29,7 +11,7 @@ const idSchema = z.string().cuid();
 
 /**
  * PATCH - Atualizar status do contato (protegido)
- * Requer: Header X-Admin-Token
+ * Requer: Sessão de admin válida via cookie HttpOnly
  * Body: { status: "new" | "read" }
  * Rate limit: 20 req/min
  */
@@ -63,7 +45,7 @@ export async function PATCH(
     }
 
     // 2. Validar autenticação
-    if (!validateAdminToken(request)) {
+    if (!hasValidAdminSession(request)) {
       console.warn(`Unauthorized PATCH attempt from IP: ${ip}`);
       return NextResponse.json(
         { error: "Não autorizado." },
@@ -133,7 +115,7 @@ export async function PATCH(
 
 /**
  * DELETE - Deletar contato (protegido)
- * Requer: Header X-Admin-Token
+ * Requer: Sessão de admin válida via cookie HttpOnly
  * Proteção: CUID validation, audit logging, rate limiting
  * Rate limit: 10 deletes/min
  */
@@ -167,7 +149,7 @@ export async function DELETE(
     }
 
     // 2. Validar autenticação
-    if (!validateAdminToken(request)) {
+    if (!hasValidAdminSession(request)) {
       console.warn(`Unauthorized DELETE attempt from IP: ${ip}`);
       return NextResponse.json(
         { error: "Não autorizado." },

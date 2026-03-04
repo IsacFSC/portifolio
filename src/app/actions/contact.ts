@@ -1,18 +1,39 @@
 "use server";
 
 import React from "react";
+import { render } from "@react-email/render";
 import { contactFormSchema } from "@/lib/validations";
 import { prisma } from "@/lib/prisma";
-import { Resend } from "resend";
+import sgMail from "@sendgrid/mail";
 import { ContactEmail } from "@/emails/ContactEmail";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface ContactFormResult {
   success: boolean;
   message: string;
   error?: string;
   id?: string;
+}
+
+function hasValidSendGridConfig() {
+  const apiKey = process.env.SENDGRID_API_KEY;
+  const fromEmail = process.env.SENDGRID_FROM_EMAIL;
+
+  const isApiKeyValid =
+    typeof apiKey === "string" &&
+    apiKey.startsWith("SG.") &&
+    !apiKey.includes("xxxxx") &&
+    !apiKey.includes("your_");
+
+  const isFromEmailValid =
+    typeof fromEmail === "string" &&
+    !fromEmail.includes("seu-dominio.com") &&
+    fromEmail.includes("@");
+
+  return {
+    enabled: isApiKeyValid && isFromEmailValid,
+    apiKey,
+    fromEmail,
+  };
 }
 
 export async function submitContactForm(
@@ -54,9 +75,12 @@ export async function submitContactForm(
       email: contact.email,
     });
 
-    // Enviar email com template
-    if (process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.includes("your_")) {
+    // Enviar email com template via SendGrid
+    const sendGrid = hasValidSendGridConfig();
+    if (sendGrid.enabled) {
       try {
+        sgMail.setApiKey(sendGrid.apiKey!);
+
         const emailTemplate = React.createElement(ContactEmail, {
           name: validatedData.name,
           email: validatedData.email,
@@ -66,19 +90,32 @@ export async function submitContactForm(
           messageId: contact.id,
         });
 
-        await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+        const html = await render(emailTemplate);
+
+        await sgMail.send({
+          from: sendGrid.fromEmail!,
           to: process.env.ADMIN_EMAIL || "noreply.developersuport@gmail.com",
           replyTo: validatedData.email,
           subject: `📧 Nova mensagem: ${validatedData.subject}`,
-          react: emailTemplate,
+          html,
+          text: [
+            `Nome: ${validatedData.name}`,
+            `Email: ${validatedData.email}`,
+            `Assunto: ${validatedData.subject}`,
+            "",
+            validatedData.message,
+          ].join("\n"),
         });
 
-        console.log("✅ Email enviado via Resend");
+        console.log("✅ Email enviado via SendGrid");
       } catch (emailError) {
-        console.error("⚠️ Erro ao enviar email:", emailError);
+        console.error("⚠️ Erro ao enviar email via SendGrid:", emailError);
         // Continua mesmo se email falhar - mensagem já foi salva
       }
+    } else {
+      console.warn(
+        "⚠️ SendGrid desabilitado: configure SENDGRID_API_KEY iniciando com 'SG.' e SENDGRID_FROM_EMAIL com remetente verificado no SendGrid."
+      );
     }
 
     return {

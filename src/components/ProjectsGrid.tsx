@@ -35,8 +35,13 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             {featuredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                className="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
               >
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 -left-20 z-10 w-16 bg-linear-to-r from-transparent via-blue-400/35 to-transparent blur-md transition-transform duration-1000 ease-out group-hover:translate-x-160"
+                />
+
                 <div className="relative h-64 overflow-hidden bg-gray-200">
                   <Image
                     src={project.imageUrl}
@@ -99,8 +104,13 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             {otherProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-300"
+                className="group relative overflow-hidden bg-white rounded-lg shadow hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
               >
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 -left-20 z-10 w-14 bg-linear-to-r from-transparent via-blue-400/30 to-transparent blur-md transition-transform duration-1000 ease-out group-hover:translate-x-120"
+                />
+
                 <div className="relative h-40 overflow-hidden bg-gray-200">
                   <Image
                     src={project.imageUrl}

@@ -21,18 +21,35 @@ export default function Home() {
       <ServicesSection />
 
       {/* Contato */}
-      <section id="contact" className="py-20 bg-slate-300">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 relative overflow-hidden bg-linear-to-br from-slate-100 via-blue-100/85 to-violet-100/70">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-blue-500/25 via-violet-400/15 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-14 top-14 h-32 w-40 rounded-full bg-blue-400/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-14 bottom-8 h-36 w-44 rounded-full bg-emerald-400/20 blur-3xl"
+        />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-pulse">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Vamos Trabalhar Juntos?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Tenho uma ideia? Quer conversar sobre seu projeto? Envie uma mensagem!
+              Conte sua ideia e eu retorno com um plano objetivo para seu site sair do papel e gerar resultados.
             </p>
           </div>
 
-          <div className="bg-slate-100 rounded-xl p-8 md:p-12">
+          <div className="relative overflow-hidden bg-white/85 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-200/70 shadow-lg">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 -left-20 w-16 bg-linear-to-r from-blue-400/35 via-transparent to-violet-400/25 blur-md"
+            />
             <ContactFormHF />
           </div>
         </div>

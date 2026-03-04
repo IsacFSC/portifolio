@@ -1,30 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
-
-/**
- * Middleware: Validar token de autenticação
- * Espera header: X-Admin-Token: Bearer <base64(admin:senha)>
- */
-function validateAdminToken(request: NextRequest): boolean {
-  const token = request.headers.get("x-admin-token");
-  const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
-
-  if (!token || !token.startsWith("Bearer ")) {
-    return false;
-  }
-
-  const expectedToken = Buffer.from(`admin:${adminPassword}`).toString(
-    "base64"
-  );
-  const receivedToken = token.slice(7); // Remove "Bearer "
-
-  return receivedToken === expectedToken;
-}
+import { hasValidAdminSession } from "@/lib/admin-auth";
 
 /**
  * GET - Listar todos os contatos (protegido)
- * Requer: Header X-Admin-Token com token válido
+ * Requer: Sessão de admin válida via cookie HttpOnly
  * Rate limit: 10 requisições por minuto por IP
  */
 export async function GET(request: NextRequest) {
@@ -58,10 +39,10 @@ export async function GET(request: NextRequest) {
     }
 
     // 2. Validar autenticação
-    if (!validateAdminToken(request)) {
+    if (!hasValidAdminSession(request)) {
       console.warn(`Unauthorized admin access attempt from IP: ${ip}`);
       return NextResponse.json(
-        { error: "Não autorizado. Token inválido." },
+        { error: "Não autorizado." },
         { status: 401 }
       );
     }

@@ -25,7 +25,6 @@ export default function AdminPage() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(false);
   const [stats, setStats] = useState({ total: 0, new: 0, read: 0 });
-  const [token, setToken] = useState<string | null>(null);
   const [loginAttempts, setLoginAttempts] = useState<LoginAttempt>({
     count: 0,
     resetAt: 0,
@@ -111,28 +110,22 @@ export default function AdminPage() {
         return;
       }
 
-      const data = await response.json();
-      const tokenString = data.token;
-
-      setToken(tokenString);
       setIsAuthenticated(true);
       setError('');
       setPassword('');
       setLoginAttempts({ count: 0, resetAt: 0 });
-      fetchContacts(tokenString);
+      fetchContacts();
     } catch (err) {
       console.error('Erro ao fazer login:', err);
       setError('Erro de conexão. Tente novamente.');
     }
   };
 
-  const fetchContacts = async (authToken: string) => {
+  const fetchContacts = async () => {
     setLoading(true);
     try {
       const response = await fetch('/api/admin/contacts', {
-        headers: {
-          'X-Admin-Token': `Bearer ${authToken}`,
-        },
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -162,20 +155,19 @@ export default function AdminPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!token) return;
-
     if (confirm('Tem certeza que deseja deletar esta mensagem?')) {
       try {
         const response = await fetch(`/api/admin/contacts/${id}`, {
           method: 'DELETE',
-          headers: {
-            'X-Admin-Token': `Bearer ${token}`,
-          },
+          credentials: 'include',
         });
 
         if (response.ok) {
           setContacts(contacts.filter((c) => c.id !== id));
-          fetchContacts(token);
+          fetchContacts();
+        } else if (response.status === 401) {
+          setError('Sessão expirada. Faça login novamente.');
+          setIsAuthenticated(false);
         } else if (response.status === 429) {
           setError('Limite de deletions atingido. Tente mais tarde.');
         } else {
@@ -189,22 +181,20 @@ export default function AdminPage() {
   };
 
   const handleMarkAsRead = async (id: string) => {
-    if (!token) return;
-
     try {
       const response = await fetch(`/api/admin/contacts/${id}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          'X-Admin-Token': `Bearer ${token}`,
         },
         body: JSON.stringify({ status: 'read' }),
       });
 
       if (response.ok) {
-        fetchContacts(token);
+        fetchContacts();
       } else if (response.status === 401) {
-        setError('Token inválido. Faça login novamente.');
+        setError('Sessão expirada. Faça login novamente.');
         setIsAuthenticated(false);
       } else {
         setError('Erro ao atualizar contato.');
@@ -217,7 +207,7 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-gray-900 to-blue-900 flex items-center justify-center p-4">
         <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full">
           <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-full mx-auto mb-6">
             <Lock size={24} className="text-white" />
@@ -297,17 +287,20 @@ export default function AdminPage() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => {
-                if (token) fetchContacts(token);
+                fetchContacts();
               }}
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
             >
               🔄 Atualizar
             </button>
             <button
-              onClick={() => {
+              onClick={async () => {
+                await fetch('/api/admin/logout', {
+                  method: 'POST',
+                  credentials: 'include',
+                });
                 setIsAuthenticated(false);
                 setPassword('');
-                setToken(null);
               }}
               className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
@@ -586,6 +579,7 @@ export default function AdminPage() {
               </h3>
               <ul className="list-disc list-inside text-sm text-gray-300 space-y-2 ml-4">
                 <li>Autenticação por Token (validado no servidor)</li>
+                <li>Sessão segura via cookie HttpOnly + assinatura HMAC</li>
                 <li>Rate limiting: 3 tentativas de login em 15 minutos</li>
                 <li>Bloqueio temporário após 3 falhas</li>
                 <li>Validação de CUID contra SQL injection</li>
@@ -602,17 +596,18 @@ export default function AdminPage() {
               </h3>
               <div className="bg-gray-900 p-4 rounded-lg text-sm font-mono text-gray-300 overflow-x-auto border border-gray-700">
                 <p className="mb-4 text-gray-400">
-                  <strong>Header necessário:</strong>
+                  <strong>Sessão necessária:</strong>
                 </p>
-                <pre>X-Admin-Token: Bearer base64(admin:senha)</pre>
+                <pre>Cookie HttpOnly: admin_session=&lt;assinatura&gt;</pre>
                 <p className="mt-4 mb-2 text-gray-400">
                   <strong>Exemplo com curl:</strong>
                 </p>
                 <pre className="text-xs">
-{`TOKEN=$(curl -s -X POST http://localhost:3000/api/admin/login \\
+{`curl -s -X POST http://localhost:3000/api/admin/login \
   -H "Content-Type: application/json" \\
-  -d '{"password":"admin123"}' | jq -r '.token')
-curl -H "X-Admin-Token: Bearer $TOKEN" \\
+  -d '{"password":"admin123"}' \
+  -c cookies.txt
+curl -b cookies.txt \
   http://localhost:3000/api/admin/contacts`}
                 </pre>
               </div>
